@@ -13,7 +13,7 @@
             theme: {
                 extend: {
                     colors: {
-                        burgundy: '#821131', /* UPDATED: Menggunakan warna baru #821131 */
+                        burgundy: '#821131', /* FIXED: Warna #821131 */
                         cream: '#f8f8f8',
                         black: '#1a1a1a',
                         gold: '#C5A059',
@@ -45,47 +45,53 @@
         .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- NEW BUTTON STYLE: MAROON PULSE --- */
+        /* --- BUTTON MAROON PULSE (UPDATED SIZE & COLOR) --- */
         .btn-maroon-pulse {
             position: relative;
-            background-color: #821131; /* Warna request */
+            background-color: #821131; /* Warna #821131 */
             color: white;
             z-index: 10;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(130, 17, 49, 0.3); /* Shadow halus */
         }
         .btn-maroon-pulse:hover {
-            background-color: #660e26; /* Sedikit lebih gelap saat hover */
+            background-color: #660e26;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(130, 17, 49, 0.4);
         }
-        /* Membuat 2 lapisan garis denyut */
+        .btn-maroon-pulse:active {
+            transform: scale(0.98);
+        }
+        /* Efek Denyut */
         .btn-maroon-pulse::before,
         .btn-maroon-pulse::after {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 50px; 
-            border: 1px solid #821131; /* Warna garis denyut */
+            border-radius: 9999px; 
+            border: 1px solid #821131;
             z-index: -1;
             animation: rippleLines 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
         .btn-maroon-pulse::after {
-            animation-delay: 0.5s;
+            animation-delay: 0.6s;
         }
 
         @keyframes rippleLines {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.35); opacity: 0; }
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.4); opacity: 0; }
         }
 
         /* --- CSS PRICING & CATALOG --- */
         :root {
-            /* UPDATED CSS VARIABLES TO #821131 */
+            /* Warna #821131 diterapkan di variabel CSS */
             --p-primary: #821131; 
             --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
-            --bg-card-content: #fff5f6; --btn-color: #9c143a; /* Sedikit lighter untuk tombol kecil */
+            --bg-card-content: #fff5f6; 
+            --btn-color: #9c143a; 
             --btn-shadow-color: #580b21; 
             --price-color: #9c0c28; --border-card: #a64d5e; 
-            --text-main: #821131; /* Updated text color */
+            --text-main: #821131; 
             --text-secondary: #8c5660; 
             --maroon-card: #821131;
         }
@@ -210,7 +216,7 @@
 
     <div class="w-full bg-white py-8 flex flex-col items-center justify-center relative z-20 border-b border-gray-100 shadow-sm">
          <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-4 font-semibold">Looking for another program?</p>
-         <a href="https://lynk.id/rizakamilaa/page/public-speaking" target="_blank" class="btn-maroon-pulse px-8 py-3 rounded-full font-bold text-xs tracking-[0.15em] uppercase shadow-lg active:scale-95">
+         <a href="https://lynk.id/rizakamilaa/page/public-speaking" target="_blank" class="btn-maroon-pulse w-[85%] md:w-auto px-6 py-3.5 rounded-full font-bold text-[11px] md:text-xs tracking-[0.2em] uppercase shadow-lg active:scale-95 flex justify-center items-center transition-all duration-300">
              Switch to Public Speaking Page
          </a>
     </div>
