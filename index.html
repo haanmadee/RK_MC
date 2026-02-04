@@ -13,10 +13,10 @@
             theme: {
                 extend: {
                     colors: {
-                        burgundy: '#4d0a0a', 
+                        burgundy: '#821131', /* UPDATED: Menggunakan warna baru #821131 */
                         cream: '#f8f8f8',
                         black: '#1a1a1a',
-                        gold: '#C5A059'
+                        gold: '#C5A059',
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
@@ -45,12 +45,48 @@
         .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
 
+        /* --- NEW BUTTON STYLE: MAROON PULSE --- */
+        .btn-maroon-pulse {
+            position: relative;
+            background-color: #821131; /* Warna request */
+            color: white;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .btn-maroon-pulse:hover {
+            background-color: #660e26; /* Sedikit lebih gelap saat hover */
+            transform: translateY(-2px);
+        }
+        /* Membuat 2 lapisan garis denyut */
+        .btn-maroon-pulse::before,
+        .btn-maroon-pulse::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50px; 
+            border: 1px solid #821131; /* Warna garis denyut */
+            z-index: -1;
+            animation: rippleLines 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        .btn-maroon-pulse::after {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes rippleLines {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.35); opacity: 0; }
+        }
+
         /* --- CSS PRICING & CATALOG --- */
         :root {
-            --p-primary: #4d0a0a; --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
-            --bg-card-content: #fff5f6; --btn-color: #800020; --btn-shadow-color: #4a0012; 
+            /* UPDATED CSS VARIABLES TO #821131 */
+            --p-primary: #821131; 
+            --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
+            --bg-card-content: #fff5f6; --btn-color: #9c143a; /* Sedikit lighter untuk tombol kecil */
+            --btn-shadow-color: #580b21; 
             --price-color: #9c0c28; --border-card: #a64d5e; 
-            --text-main: #4a0404; --text-secondary: #8c5660; 
+            --text-main: #821131; /* Updated text color */
+            --text-secondary: #8c5660; 
             --maroon-card: #821131;
         }
 
@@ -100,8 +136,8 @@
     <nav id="navbar" class="absolute top-0 left-0 w-full z-50 flex justify-center md:justify-end items-center px-4 py-4 transition-all duration-300">
         <div class="hidden md:flex gap-6 text-[10px] tracking-[0.2em] font-bold uppercase text-burgundy bg-white/80 px-6 py-2 rounded-full backdrop-blur-sm">
             <a href="#product" class="hover:text-gold transition">Shop</a>
-            <a href="#mc" class="hover:text-gold transition">MC</a>
-            <a href="public-speaking.html" class="hover:text-gold transition">Speaking</a>
+            <a href="https://lynk.id/rizakamilaa" class="hover:text-gold transition">MC</a>
+            <a href="https://lynk.id/rizakamilaa/page/public-speaking" class="hover:text-gold transition">Speaking</a>
         </div>
     </nav>
 
@@ -172,8 +208,12 @@
         </div>
     </div>
 
-    <div class="w-full h-3 bg-white border-b border-gray-100 shadow-sm relative z-20"></div>
-
+    <div class="w-full bg-white py-8 flex flex-col items-center justify-center relative z-20 border-b border-gray-100 shadow-sm">
+         <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-4 font-semibold">Looking for another program?</p>
+         <a href="https://lynk.id/rizakamilaa/page/public-speaking" target="_blank" class="btn-maroon-pulse px-8 py-3 rounded-full font-bold text-xs tracking-[0.15em] uppercase shadow-lg active:scale-95">
+             Switch to Public Speaking Page
+         </a>
+    </div>
     <div id="product" class="bg-burgundy relative z-10 mx-4 md:mx-12 rounded-[20px] md:rounded-[30px] overflow-hidden text-white h-auto shadow-2xl my-6">
         <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-burgundy via-burgundy to-black z-0"></div>
         <div class="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none z-0"></div>
@@ -436,8 +476,6 @@
         function scrollToContent() { document.getElementById('product').scrollIntoView({behavior: 'smooth'}); }
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
         document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
-
-        // NOTE: Slider Maroon dihapus JS nya karena HTML-nya sudah tidak ada di page ini agar tidak error di console
     </script>
 </body>
 </html>
