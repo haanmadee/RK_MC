@@ -13,7 +13,7 @@
             theme: {
                 extend: {
                     colors: {
-                        burgundy: '#821131', /* FIXED: Warna #821131 */
+                        burgundy: '#821131', /* Warna Utama */
                         cream: '#f8f8f8',
                         black: '#1a1a1a',
                         gold: '#C5A059',
@@ -45,57 +45,36 @@
         .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- BUTTON MAROON PULSE (UPDATED SIZE & COLOR) --- */
-        .btn-maroon-pulse {
+        /* BUTTON PULSE GOLD */
+        .btn-gold-pulse {
             position: relative;
-            background-color: #821131; /* Warna #821131 */
+            background-color: #C5A059;
             color: white;
             z-index: 10;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(130, 17, 49, 0.3); /* Shadow halus */
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
         }
-        .btn-maroon-pulse:hover {
-            background-color: #660e26;
+        .btn-gold-pulse:hover {
+            background-color: #b08d4e;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(130, 17, 49, 0.4);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
         }
-        .btn-maroon-pulse:active {
-            transform: scale(0.98);
+        .btn-gold-pulse:active { transform: scale(0.98); }
+        .btn-gold-pulse::before, .btn-gold-pulse::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 9999px; border: 1px solid #C5A059; z-index: -1;
+            animation: rippleLinesGold 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
-        /* Efek Denyut */
-        .btn-maroon-pulse::before,
-        .btn-maroon-pulse::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 9999px; 
-            border: 1px solid #821131;
-            z-index: -1;
-            animation: rippleLines 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
-        .btn-maroon-pulse::after {
-            animation-delay: 0.6s;
-        }
+        .btn-gold-pulse::after { animation-delay: 0.6s; }
+        @keyframes rippleLinesGold { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.4); opacity: 0; } }
 
-        @keyframes rippleLines {
-            0% { transform: scale(1); opacity: 0.6; }
-            100% { transform: scale(1.4); opacity: 0; }
-        }
-
-        /* --- CSS PRICING & CATALOG --- */
+        /* CSS PRICING & CATALOG */
         :root {
-            /* Warna #821131 diterapkan di variabel CSS */
-            --p-primary: #821131; 
-            --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
-            --bg-card-content: #fff5f6; 
-            --btn-color: #9c143a; 
-            --btn-shadow-color: #580b21; 
+            --p-primary: #821131; --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
+            --bg-card-content: #fff5f6; --btn-color: #9c143a; --btn-shadow-color: #580b21; 
             --price-color: #9c0c28; --border-card: #a64d5e; 
-            --text-main: #821131; 
-            --text-secondary: #8c5660; 
-            --maroon-card: #821131;
+            --text-main: #821131; --text-secondary: #8c5660; 
         }
-
         .pricing-row { display: flex; flex-direction: row; justify-content: center; align-items: stretch; gap: 8px; max-width: 900px; margin: 0 auto; padding: 0 10px; }
         .pricing-card { width: 50%; border-radius: 12px; padding: 15px 8px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.08); opacity: 1; font-family: 'Montserrat', sans-serif; }
         .card-online { background: var(--p-white); border: 1px solid var(--p-primary); color: var(--p-text-dark); }
@@ -133,7 +112,6 @@
             .pricing-card { padding: 25px; } .p-title { font-size: 1.2rem; } .p-subtitle { font-size: 0.8rem; } .p-price { font-size: 2rem; margin-bottom: 20px; } .p-features li { font-size: 0.85rem; margin-bottom: 10px; } .p-features li i { font-size: 1rem; margin-right: 10px; } .p-btn { font-size: 0.9rem; padding: 15px 0; } .p-badge { font-size: 0.7rem; padding: 5px 15px; top: -12px; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
         }
-        
         @keyframes pulseGold { 0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); } 70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); } }
     </style>
 </head>
@@ -215,11 +193,12 @@
     </div>
 
     <div class="w-full bg-white py-8 flex flex-col items-center justify-center relative z-20 border-b border-gray-100 shadow-sm">
-         <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-4 font-semibold">Looking for another program?</p>
-         <a href="https://lynk.id/rizakamilaa/page/public-speaking" target="_blank" class="btn-maroon-pulse w-[85%] md:w-auto px-6 py-3.5 rounded-full font-bold text-[11px] md:text-xs tracking-[0.2em] uppercase shadow-lg active:scale-95 flex justify-center items-center transition-all duration-300">
-             Switch to Public Speaking Page
+         <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-3 font-semibold">Looking for another program?</p>
+         <a href="https://lynk.id/rizakamilaa/page/public-speaking" target="_blank" class="btn-gold-pulse w-fit mx-auto px-5 py-2.5 rounded-full font-bold text-[11px] md:text-xs tracking-[0.15em] uppercase shadow-lg active:scale-95 flex justify-center items-center transition-all duration-300">
+             Cek Public Speaking →
          </a>
     </div>
+
     <div id="product" class="bg-burgundy relative z-10 mx-4 md:mx-12 rounded-[20px] md:rounded-[30px] overflow-hidden text-white h-auto shadow-2xl my-6">
         <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-burgundy via-burgundy to-black z-0"></div>
         <div class="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none z-0"></div>
@@ -303,13 +282,45 @@
             </div>
         </div>
         <div id="mc-scroller" class="flex overflow-x-auto gap-4 px-4 pb-4 no-scrollbar items-end" style="scroll-behavior: auto;">
-             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Bimtek</p></div></div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769416544304-68a69248-6d9b-43af-aa5e-d47966ac5eec.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">MC Mekaarpreneur</p></div></div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404509038-8e86cf3b-a0ee-4fc2-8724-00aaa52dab89.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">MC Gathering</p></div></div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404539447-ecea453d-970f-4441-8612-208f8709159c.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Online Mentoring</p></div></div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404575301-ac8fffbc-c43c-485d-b79a-66de92d8be34.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Private 1:1</p></div></div>
-             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404629454-ff9b228d-3654-4741-b84b-b5ae1712c4e9.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Public Speaking</p></div></div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"></div>
+             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">Bimtek</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769416544304-68a69248-6d9b-43af-aa5e-d47966ac5eec.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">MC Mekaarpreneur</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404509038-8e86cf3b-a0ee-4fc2-8724-00aaa52dab89.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">MC Gathering</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404539447-ecea453d-970f-4441-8612-208f8709159c.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">Online Mentoring</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404575301-ac8fffbc-c43c-485d-b79a-66de92d8be34.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">Private 1:1</p>
+                </div>
+            </div>
+             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404629454-ff9b228d-3654-4741-b84b-b5ae1712c4e9.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">Public Speaking</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+            </div>
         </div>
     </section>
 
@@ -320,7 +331,6 @@
         </div>
 
         <div class="product-grid scroll-section delay-100">
-            
             <div class="product-card">
                 <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769524097745-920cb59d-dc31-4cb6-a092-64e4a0fa5360.png" alt="Session" class="card-image">
@@ -336,7 +346,6 @@
                     <a href="https://lynk.id/rizakamilaa/kl9ng1gk6276" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
                 </div>
             </div>
-
             <div class="product-card">
                 <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769524394623-92f96820-d084-4da6-9d96-74aad9678678.png" alt="Review" class="card-image">
@@ -352,7 +361,6 @@
                     <a href="https://lynk.id/rizakamilaa/owdg4ym2nl1y" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
                 </div>
             </div>
-            
             <div class="product-card">
                 <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769524412601-a8eedd73-760b-4ce8-ae70-c38d054dd9f9.png" alt="Ebook" class="card-image">
@@ -368,7 +376,6 @@
                     <a href="http://lynk.id/rizakamilaa/x8kyqdkxq3e1" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
                 </div>
             </div>
-            
             <div class="product-card">
                 <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769524443764-b568cb9f-00b3-4a5a-a7da-bf215ba26212.png" alt="Template" class="card-image">
@@ -384,7 +391,6 @@
                     <a href="https://lynk.id/rizakamilaa/mqr9245mv0x0" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -477,7 +483,15 @@
         const mcScroller = document.getElementById('mc-scroller'); let mcScrollSpeed = 1; let isHovering = false;
         function autoScrollMC() { if (!isHovering) { if (mcScroller.scrollLeft >= (mcScroller.scrollWidth - mcScroller.clientWidth - 10)) { mcScroller.scrollLeft = 0; } else { mcScroller.scrollLeft += mcScrollSpeed; } } requestAnimationFrame(autoScrollMC); }
         autoScrollMC();
-        mcScroller.addEventListener('touchstart', () => isHovering = true); mcScroller.addEventListener('touchend', () => setTimeout(() => isHovering = false, 2000));
+        
+        // Touch events pause scroller
+        mcScroller.addEventListener('touchstart', () => isHovering = true);
+        mcScroller.addEventListener('touchend', () => setTimeout(() => isHovering = false, 2000));
+        // Mouse events for desktop click/hover to pause
+        mcScroller.addEventListener('mouseenter', () => isHovering = true);
+        mcScroller.addEventListener('mouseleave', () => isHovering = false);
+        mcScroller.addEventListener('mousedown', () => isHovering = true);
+        mcScroller.addEventListener('mouseup', () => isHovering = false);
 
         function scrollToContent() { document.getElementById('product').scrollIntoView({behavior: 'smooth'}); }
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
