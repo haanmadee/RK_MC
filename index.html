@@ -14,7 +14,7 @@
                 extend: {
                     colors: {
                         burgundy: '#821131', /* Warna Utama */
-                        cream: '#f8f8f8',
+                        cream: '#ffffff', /* UBAH JADI PUTIH */
                         black: '#1a1a1a',
                         gold: '#C5A059',
                     },
@@ -30,13 +30,13 @@
     </script>
 
     <style>
-        body { background-color: #fff; margin: 0; overflow-x: hidden; overflow-y: auto; }
+        body { background-color: #ffffff; margin: 0; overflow-x: hidden; overflow-y: auto; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
         /* MAGAZINE HEADER STYLES */
         .mag-headline {
-            line-height: 0.85;
+            line-height: 0.8; /* LEBIH RAPAT */
             letter-spacing: -0.03em;
         }
         
@@ -125,7 +125,7 @@
         @keyframes pulseGold { 0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); } 70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); } }
     </style>
 </head>
-<body class="text-gray-900 bg-[#fdfdfd]">
+<body class="text-gray-900 bg-white">
 
     <nav id="navbar" class="absolute top-0 left-0 w-full z-50 flex justify-center md:justify-end items-center px-4 py-4 transition-all duration-300">
         <div class="hidden md:flex gap-6 text-[10px] tracking-[0.2em] font-bold uppercase text-burgundy bg-white/50 px-6 py-2 rounded-full backdrop-blur-sm border border-burgundy/10">
@@ -135,9 +135,9 @@
         </div>
     </nav>
 
-    <header class="w-full h-auto md:min-h-screen flex flex-col justify-start md:justify-between pt-24 pb-8 md:pt-20 md:pb-4 px-5 md:px-12 bg-cream relative border-b border-burgundy/20 gap-8 md:gap-0">
+    <header class="w-full h-auto flex flex-col justify-start pt-20 pb-4 px-5 md:px-12 bg-white relative border-b border-burgundy/20 gap-2 md:gap-0">
         
-        <div class="flex justify-between items-end border-b-2 border-burgundy/80 pb-3">
+        <div class="flex justify-between items-end border-b-2 border-burgundy/80 pb-2 mb-2">
             <div class="flex flex-col">
                  <span class="text-burgundy font-sans font-bold text-[9px] md:text-xs tracking-[0.3em]">EST. 2014</span>
                  <span class="text-burgundy/60 font-serif italic text-[10px] md:text-sm">Malang, Indonesia</span>
@@ -148,7 +148,7 @@
             </div>
         </div>
 
-        <div class="flex-col justify-center items-center text-center relative z-10">
+        <div class="flex-col justify-center items-center text-center relative z-10 py-2">
             <h1 class="mag-headline font-serif text-[18vw] md:text-[14vw] font-bold text-burgundy mix-blend-multiply drop-shadow-sm">
                 MASTER
             </h1>
@@ -162,7 +162,7 @@
             </h1>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end border-t border-burgundy/20 pt-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 items-end border-t border-burgundy/20 pt-3 mt-1">
             <div class="hidden md:block">
                 <p class="font-sans text-[9px] font-bold text-burgundy tracking-widest uppercase mb-1">Presented By</p>
                 <p class="font-serif text-lg text-burgundy font-bold">Riza Kamila.</p>
