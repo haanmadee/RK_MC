@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        burgundy: '#821131', /* Warna Utama */
-                        cream: '#ffffff', /* UBAH JADI PUTIH */
+                        burgundy: '#821131',
+                        cream: '#ffffff',
                         black: '#1a1a1a',
                         gold: '#C5A059',
                     },
@@ -34,20 +34,17 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* MAGAZINE HEADER STYLES */
         .mag-headline {
-            line-height: 0.8; /* LEBIH RAPAT */
+            line-height: 0.8;
             letter-spacing: -0.03em;
         }
         
-        /* SLIDER ADJUSTMENT */
-        #hero-container { width: 100vw; height: 300px; position: relative; overflow: hidden; margin-top: 0; }
-        @media (min-width: 768px) { #hero-container { height: 80vh; } }
+        #hero-container { width: 100vw; height: 350px; position: relative; overflow: hidden; margin-top: 0; }
+        @media (min-width: 768px) { #hero-container { height: 85vh; } }
         
         .slider-track { display: flex; width: 400%; height: 100%; transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); }
         .slide { width: 25%; height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: white; }
         
-        /* ANIMATIONS */
         .reveal-up { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         .reveal-img { opacity: 0; transform: scale(1.1); transition: 1s ease-out; }
         .slide.active .reveal-up { opacity: 1; transform: translateY(0); }
@@ -102,7 +99,6 @@
         .card-offline .p-btn { background: var(--p-white); color: var(--p-primary); }
         .p-badge { position: absolute; top: -8px; right: 50%; transform: translateX(50%); background: var(--p-gold); color: #000; font-size: 0.45rem; font-weight: 800; padding: 2px 8px; border-radius: 20px; white-space: nowrap; z-index: 10; animation: pulseGold 2s infinite; letter-spacing: 0.5px; }
 
-        /* CATALOG GRID */
         .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; max-width: 900px; margin: 0 auto; padding: 0 15px; }
         .product-card { display: flex; flex-direction: column; background: transparent; border: none; }
         .card-image-wrapper { position: relative; width: 100%; padding-top: 55%; margin-bottom: -15px; z-index: 2; }
@@ -135,9 +131,9 @@
         </div>
     </nav>
 
-    <header class="w-full h-auto flex flex-col justify-start pt-20 pb-4 px-5 md:px-12 bg-white relative border-b border-burgundy/20 gap-2 md:gap-0">
+    <header class="w-full h-auto flex flex-col justify-start pt-4 pb-4 px-5 md:pt-20 md:px-12 bg-white relative gap-2 md:gap-0">
         
-        <div class="flex justify-between items-end border-b-2 border-burgundy/80 pb-2 mb-2">
+        <div class="flex justify-between items-end pb-2 mb-2">
             <div class="flex flex-col">
                  <span class="text-burgundy font-sans font-bold text-[9px] md:text-xs tracking-[0.3em]">EST. 2014</span>
                  <span class="text-burgundy/60 font-serif italic text-[10px] md:text-sm">Malang, Indonesia</span>
@@ -162,7 +158,7 @@
             </h1>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 items-end border-t border-burgundy/20 pt-3 mt-1">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 items-end pt-3 mt-1">
             <div class="hidden md:block">
                 <p class="font-sans text-[9px] font-bold text-burgundy tracking-widest uppercase mb-1">Presented By</p>
                 <p class="font-serif text-lg text-burgundy font-bold">Riza Kamila.</p>
@@ -177,8 +173,6 @@
                 </p>
             </div>
         </div>
-
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] border border-burgundy/5 pointer-events-none z-0"></div>
     </header>
 
     <div id="hero-container">
@@ -187,10 +181,11 @@
                 <div class="w-full h-full flex flex-row">
                     <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-16 bg-white relative z-20 border-r border-gray-100">
                         <div class="reveal-up">
-                            <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-0.5">HIGHLIGHT</span>
-                            <h1 class="text-xl md:text-[4rem] leading-[1] font-serif font-bold text-black mb-1 md:mb-4">
-                                PROFESSIONAL <br> <span class="text-burgundy italic font-medium">Image.</span>
+                            <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-0.5">THE PROFESSIONAL</span>
+                            <h1 class="text-xl md:text-[3rem] leading-[1] font-serif font-bold text-black mb-1 md:mb-2">
+                                IMPECCABLE <br> <span class="text-burgundy italic font-medium">Image.</span>
                             </h1>
+                             <p class="text-[8px] md:text-sm text-gray-500 mt-2">MC adalah representasi visual & verbal acara Anda. Penampilan dan pembawaan profesional adalah kunci kepercayaan audiens.</p>
                         </div>
                     </div>
                     <div class="w-1/2 h-full relative overflow-hidden bg-cream">
@@ -201,12 +196,9 @@
             <div class="slide bg-[#fafafa]">
                 <div class="w-full h-full flex flex-row"> 
                     <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-12 relative z-20 border-r border-gray-100">
-                         <span class="text-burgundy text-[7px] font-bold tracking-[0.2em] mb-0.5 block reveal-up">SERVICE</span>
-                         <h2 class="text-lg md:text-5xl font-serif font-bold mb-1 reveal-up leading-tight">Pro. <br> <span class="italic text-gray-400 font-light">Service.</span></h2>
-                         <ul class="space-y-0.5 text-[7px] md:text-sm text-gray-800 reveal-up font-serif w-full">
-                            <li class="border-b border-gray-200 pb-0.5">Master of Ceremony</li>
-                            <li class="border-b border-gray-200 pb-0.5">Public Speaking Mentor</li>
-                         </ul>
+                         <span class="text-burgundy text-[7px] font-bold tracking-[0.2em] mb-0.5 block reveal-up">AMBIANCE MASTER</span>
+                         <h2 class="text-lg md:text-3xl font-serif font-bold mb-1 reveal-up leading-tight">Pawang <br> <span class="italic text-gold font-light">Suasana.</span></h2>
+                         <p class="text-[8px] md:text-xs text-gray-600 mt-2 reveal-up font-medium leading-relaxed">Dari kaku jadi cair. Dari sepi jadi meriah. MC tahu kapan harus 'gas & rem' emosi audiens untuk menciptakan atmosfer yang tepat.</p>
                     </div>
                     <div class="w-1/2 h-full grid grid-cols-2 md:grid-cols-3 gap-1 p-2 md:p-12 items-center">
                         <div class="h-[80%] md:h-full bg-gray-200 overflow-hidden group reveal-img rounded-sm"><img src="https://image2url.com/r2/default/images/1769403155148-2b58caef-4494-4272-b716-99ef14b3b691.png" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-700"></div>
@@ -220,21 +212,28 @@
                         <img src="https://image2url.com/r2/default/images/1769403155148-2b58caef-4494-4272-b716-99ef14b3b691.png" class="w-full h-full object-cover blur-sm">
                     </div>
                     <div class="relative z-10 w-full max-w-4xl text-center reveal-img">
-                        <h1 class="text-base md:text-5xl font-serif text-white leading-snug font-light">
-                            "Connecting People through <span class="italic font-bold">Voice.</span>"
+                        <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-white/60 block mb-1">YOUR EVENT PARTNER</span>
+                        <h1 class="text-xl md:text-5xl font-serif text-white leading-snug font-light">
+                            "Your Event, <br> <span class="italic font-bold">My Responsibility.</span>"
                         </h1>
-                        <div class="flex justify-center gap-4 mt-2 text-white/80">
+                        <p class="text-[9px] md:text-sm text-white/80 mt-2 md:mt-4 italic max-w-xs mx-auto">
+                            Menghandle acara bukan sekadar bicara, tapi memastikan rundown berjalan mulus tanpa kendala.
+                        </p>
+                        <div class="flex justify-center gap-4 mt-4 text-white/80">
                             <div class="text-center"><span class="block text-xs font-bold">CPS</span><span class="text-[6px] uppercase tracking-widest">Certified</span></div>
-                             <div class="text-center"><span class="block text-xs font-bold">2014</span><span class="text-[6px] uppercase tracking-widest">Since</span></div>
+                             <div class="text-center"><span class="block text-xs font-bold">2014</span><span class="text-[6px] uppercase tracking-widest">Experience</span></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="slide bg-white relative">
-                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                     <h2 class="text-xl md:text-4xl font-serif italic text-burgundy mb-2 reveal-up">Explore More</h2>
+                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                     <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-1">LET'S COLLABORATE</span>
+                     <h2 class="text-xl md:text-4xl font-serif italic text-black mb-1 reveal-up">Have an Event?</h2>
+                     <p class="text-[9px] text-gray-500 mb-4 reveal-up max-w-xs">Wedding, Corporate, atau Formal? Temukan paket yang pas untuk kebutuhan Kamu di bawah.</p>
                      <div class="animate-bounce cursor-pointer p-2" onclick="scrollToContent()">
-                         <svg class="w-4 h-4 mx-auto text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                         <span class="text-[8px] font-bold text-burgundy tracking-widest uppercase block mb-1">LIHAT PRICELIST</span>
+                         <svg class="w-4 h-4 mx-auto text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                      </div>
                  </div>
             </div>
