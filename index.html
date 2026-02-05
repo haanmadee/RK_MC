@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Riza Kamila | MC Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400&family=Quicksand:wght@500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -32,16 +30,7 @@
     </script>
 
     <style>
-        /* Optimasi Dasar Body */
-        body { 
-            background-color: #ffffff; 
-            margin: 0; 
-            padding: 0; 
-            overflow-x: hidden; 
-            overflow-y: scroll; /* Pakai scroll native biar smooth */
-            -webkit-overflow-scrolling: touch; /* iOS Smooth Scroll */
-        }
-        
+        body { background-color: #ffffff; margin: 0; padding: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
@@ -50,30 +39,17 @@
             letter-spacing: -0.03em;
         }
         
-        #hero-container { width: 100vw; height: 350px; position: relative; overflow: hidden; margin-top: 0; transform: translateZ(0); /* GPU Trigger */ }
+        #hero-container { width: 100vw; height: 350px; position: relative; overflow: hidden; margin-top: 0; transform: translateZ(0); }
         @media (min-width: 768px) { #hero-container { height: 85vh; } }
         
-        .slider-track { 
-            display: flex; 
-            width: 400%; 
-            height: 100%; 
-            transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); 
-            will-change: transform; /* Hint ke browser ini bakal gerak */
-        }
+        .slider-track { display: flex; width: 400%; height: 100%; transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); will-change: transform; }
         .slide { width: 25%; height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: white; }
         
-        .reveal-up { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; will-change: opacity, transform; }
-        .reveal-img { opacity: 0; transform: scale(1.1); transition: 1s ease-out; will-change: opacity, transform; }
+        .reveal-up { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .reveal-img { opacity: 0; transform: scale(1.1); transition: 1s ease-out; }
         .slide.active .reveal-up { opacity: 1; transform: translateY(0); }
         .slide.active .reveal-img { opacity: 1; transform: scale(1); }
-        
-        /* Optimasi Scroll Section */
-        .scroll-section { 
-            opacity: 0; 
-            transform: translateY(30px); 
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Durasi dikurangi dikit biar snappy */
-            will-change: opacity, transform;
-        }
+        .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
 
         /* BUTTON PULSE GOLD */
@@ -82,15 +58,19 @@
             background-color: #C5A059;
             color: white;
             z-index: 10;
-            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transisi lebih ringan */
+            transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+        .btn-gold-pulse:hover {
+            background-color: #b08d4e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
         }
         .btn-gold-pulse:active { transform: scale(0.98); }
         .btn-gold-pulse::before, .btn-gold-pulse::after {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             border-radius: 9999px; border: 1px solid #C5A059; z-index: -1;
             animation: rippleLinesGold 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            pointer-events: none; /* Biar gak ganggu touch */
         }
         .btn-gold-pulse::after { animation-delay: 0.6s; }
         @keyframes rippleLinesGold { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.4); opacity: 0; } }
@@ -134,13 +114,6 @@
         .btn-minimal:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--btn-shadow-color); background-color: #9c0c28; }
         .btn-minimal:active { transform: translateY(4px); box-shadow: 0 0 0 var(--btn-shadow-color); }
 
-        /* Optimasi horizontal scroller */
-        #mc-scroller {
-            scroll-behavior: auto; /* Biar JS yang handle smooth nya, atau 'smooth' kalau pure CSS */
-            -webkit-overflow-scrolling: touch;
-            will-change: scroll-position;
-        }
-
         @media (min-width: 768px) {
             .pricing-card { padding: 25px; } .p-title { font-size: 1.2rem; } .p-subtitle { font-size: 0.8rem; } .p-price { font-size: 2rem; margin-bottom: 20px; } .p-features li { font-size: 0.85rem; margin-bottom: 10px; } .p-features li i { font-size: 1rem; margin-right: 10px; } .p-btn { font-size: 0.9rem; padding: 15px 0; } .p-badge { font-size: 0.7rem; padding: 5px 15px; top: -12px; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -151,6 +124,7 @@
 <body class="text-gray-900 bg-white">
 
     <header class="w-full h-auto flex flex-col justify-start pt-0 pb-4 px-5 md:pt-10 md:px-12 bg-white relative gap-0 mt-0">
+        
         <div class="flex justify-between items-end pb-2 mb-2 mt-2">
             <div class="flex flex-col">
                  <span class="text-burgundy font-sans font-bold text-[7px] md:text-xs tracking-[0.3em]">EST. 2014</span>
@@ -203,7 +177,7 @@
                             <h1 class="text-xl md:text-[3rem] leading-[1] font-serif font-bold text-black mb-1 md:mb-2">
                                 IMPECCABLE <br> <span class="text-burgundy italic font-medium">Image.</span>
                             </h1>
-                             <p class="text-[8px] md:text-sm text-gray-500 mt-2">MC adalah representasi visual & verbal acara Anda. Penampilan dan pembawaan profesional adalah kunci kepercayaan audiens.</p>
+                             <p class="text-[8px] md:text-sm text-gray-500 mt-2">MC adalah representasi visual & verbal acara Kamu. Penampilan dan pembawaan profesional adalah kunci kepercayaan audiens.</p>
                         </div>
                     </div>
                     <div class="w-1/2 h-full relative overflow-hidden bg-cream">
@@ -248,7 +222,7 @@
                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                      <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-1">LET'S COLLABORATE</span>
                      <h2 class="text-xl md:text-4xl font-serif italic text-black mb-1 reveal-up">Have an Event?</h2>
-                     <p class="text-[9px] text-gray-500 mb-4 reveal-up max-w-xs">Wedding, Corporate, atau Formal? Temukan paket yang pas untuk kebutuhan Anda di bawah.</p>
+                     <p class="text-[9px] text-gray-500 mb-4 reveal-up max-w-xs">Wedding, Corporate, atau Formal? Temukan paket yang pas untuk kebutuhan Kamu di bawah.</p>
                      <div class="animate-bounce cursor-pointer p-2" onclick="scrollToContent()">
                          <span class="text-[8px] font-bold text-burgundy tracking-widest uppercase block mb-1">LIHAT PRICELIST</span>
                          <svg class="w-4 h-4 mx-auto text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
@@ -548,7 +522,7 @@
         function updateHero() { trackHero.style.transform = `translateX(-${currentHero * 25}%)`; slides.forEach((s, i) => s.classList.toggle('active', i === currentHero)); }
         function nextSlide() { currentHero = (currentHero + 1) % totalHero; updateHero(); }
         function prevSlide() { currentHero = (currentHero - 1 + totalHero) % totalHero; updateHero(); }
-        setInterval(() => { if(window.scrollY > 200) nextSlide(); }, 5000); // Hanya slide kalau sudah discroll sedikit
+        setInterval(() => { nextSlide(); }, 4000); // Slide otomatis setiap 4 detik
 
         const mcScroller = document.getElementById('mc-scroller'); let mcScrollSpeed = 1; let isHovering = false;
         function autoScrollMC() { 
