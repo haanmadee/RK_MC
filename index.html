@@ -34,10 +34,20 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        #hero-container { width: 100vw; height: 200px; position: relative; overflow: hidden; }
-        @media (min-width: 768px) { #hero-container { height: 90vh; } }
+        /* MAGAZINE HEADER STYLES */
+        .mag-headline {
+            line-height: 0.85;
+            letter-spacing: -0.03em;
+        }
+        
+        /* SLIDER ADJUSTMENT */
+        #hero-container { width: 100vw; height: 300px; position: relative; overflow: hidden; margin-top: 0; }
+        @media (min-width: 768px) { #hero-container { height: 80vh; } }
+        
         .slider-track { display: flex; width: 400%; height: 100%; transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); }
         .slide { width: 25%; height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: white; }
+        
+        /* ANIMATIONS */
         .reveal-up { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         .reveal-img { opacity: 0; transform: scale(1.1); transition: 1s ease-out; }
         .slide.active .reveal-up { opacity: 1; transform: translateY(0); }
@@ -115,15 +125,61 @@
         @keyframes pulseGold { 0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); } 70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); } }
     </style>
 </head>
-<body class="text-gray-900">
+<body class="text-gray-900 bg-[#fdfdfd]">
 
     <nav id="navbar" class="absolute top-0 left-0 w-full z-50 flex justify-center md:justify-end items-center px-4 py-4 transition-all duration-300">
-        <div class="hidden md:flex gap-6 text-[10px] tracking-[0.2em] font-bold uppercase text-burgundy bg-white/80 px-6 py-2 rounded-full backdrop-blur-sm">
+        <div class="hidden md:flex gap-6 text-[10px] tracking-[0.2em] font-bold uppercase text-burgundy bg-white/50 px-6 py-2 rounded-full backdrop-blur-sm border border-burgundy/10">
             <a href="#product" class="hover:text-gold transition">Shop</a>
             <a href="https://lynk.id/rizakamilaa" class="hover:text-gold transition">MC</a>
             <a href="https://lynk.id/rizakamilaa/page/public-speaking" class="hover:text-gold transition">Speaking</a>
         </div>
     </nav>
+
+    <header class="w-full min-h-[85vh] md:min-h-screen flex flex-col justify-between pt-20 pb-4 px-5 md:px-12 bg-cream relative border-b border-burgundy/20">
+        
+        <div class="flex justify-between items-end border-b-2 border-burgundy/80 pb-3 mb-6 md:mb-10">
+            <div class="flex flex-col">
+                 <span class="text-burgundy font-sans font-bold text-[9px] md:text-xs tracking-[0.3em]">EST. 2014</span>
+                 <span class="text-burgundy/60 font-serif italic text-[10px] md:text-sm">Malang, Indonesia</span>
+            </div>
+            <div class="text-right">
+                <span class="text-burgundy font-sans font-bold text-[9px] md:text-xs tracking-[0.3em]">VOL. 01</span>
+                <span class="block text-burgundy/60 font-serif italic text-[10px] md:text-sm">The Portfolio Edition</span>
+            </div>
+        </div>
+
+        <div class="flex-grow flex flex-col justify-center items-center text-center relative z-10">
+            <h1 class="mag-headline font-serif text-[18vw] md:text-[14vw] font-bold text-burgundy mix-blend-multiply drop-shadow-sm">
+                MASTER
+            </h1>
+            <div class="flex items-center justify-center w-full gap-4 md:gap-8 my-[-1vw] md:my-[-2vw]">
+                <span class="h-[1px] bg-burgundy/30 flex-grow max-w-[50px] md:max-w-[150px]"></span>
+                <h2 class="font-serif italic text-[8vw] md:text-[5vw] text-gold/90 font-light">of</h2>
+                <span class="h-[1px] bg-burgundy/30 flex-grow max-w-[50px] md:max-w-[150px]"></span>
+            </div>
+            <h1 class="mag-headline font-serif text-[17vw] md:text-[14vw] font-bold text-burgundy mix-blend-multiply drop-shadow-sm">
+                CEREMONY
+            </h1>
+        </div>
+
+        <div class="mt-8 md:mt-0 grid grid-cols-1 md:grid-cols-3 gap-6 items-end border-t border-burgundy/20 pt-4">
+            <div class="hidden md:block">
+                <p class="font-sans text-[9px] font-bold text-burgundy tracking-widest uppercase mb-1">Presented By</p>
+                <p class="font-serif text-lg text-burgundy font-bold">Riza Kamila.</p>
+            </div>
+            <div class="text-center md:text-center">
+                <p class="font-sans text-[8px] md:text-[10px] text-burgundy/70 tracking-[0.2em] uppercase mb-2">Scroll to Explore</p>
+                <div class="h-8 w-[1px] bg-burgundy/40 mx-auto animate-bounce"></div>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="font-serif italic text-burgundy text-sm md:text-lg leading-tight">
+                    "Menghidupkan suasana dengan kata,<br> menyentuh hati dengan suara."
+                </p>
+            </div>
+        </div>
+
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] border border-burgundy/5 pointer-events-none z-0"></div>
+    </header>
 
     <div id="hero-container">
         <div class="slider-track" id="track">
@@ -131,13 +187,10 @@
                 <div class="w-full h-full flex flex-row">
                     <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-16 bg-white relative z-20 border-r border-gray-100">
                         <div class="reveal-up">
-                            <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-0.5">PORTFOLIO</span>
-                            <h1 class="text-xl md:text-[5rem] leading-[1] font-serif font-bold text-black mb-1 md:mb-4">
-                                RIZA <br> <span class="text-burgundy italic font-medium">Kamila.</span>
+                            <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-0.5">HIGHLIGHT</span>
+                            <h1 class="text-xl md:text-[4rem] leading-[1] font-serif font-bold text-black mb-1 md:mb-4">
+                                PROFESSIONAL <br> <span class="text-burgundy italic font-medium">Image.</span>
                             </h1>
-                            <p class="text-[7px] md:text-sm text-gray-500 leading-tight max-w-xs border-l-2 border-burgundy pl-2">
-                                Professional MC & Public Speaking Mentor based in Malang.
-                            </p>
                         </div>
                     </div>
                     <div class="w-1/2 h-full relative overflow-hidden bg-cream">
@@ -274,56 +327,6 @@
         </div>
     </div>
 
-    <section id="mc" class="py-8 md:py-20 bg-white text-burgundy overflow-hidden relative border-t border-gray-100">
-        <div class="px-5 md:px-20 mb-4 md:mb-10 flex justify-between items-end scroll-section">
-            <div>
-                <h2 class="text-xl md:text-5xl font-serif font-bold">Master of Ceremony</h2>
-                <p class="text-[9px] md:text-xs text-gray-500 mt-1 tracking-widest uppercase">Formal • Wedding • Event</p>
-            </div>
-        </div>
-        <div id="mc-scroller" class="flex overflow-x-auto gap-4 px-4 pb-4 no-scrollbar items-end" style="scroll-behavior: auto;">
-             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
-                <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
-                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
-                    <p class="text-[8px] font-bold text-white uppercase">Bimtek</p>
-                </div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
-                <img src="https://image2url.com/r2/default/images/1769416544304-68a69248-6d9b-43af-aa5e-d47966ac5eec.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
-                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
-                    <p class="text-[8px] font-bold text-white uppercase">MC Mekaarpreneur</p>
-                </div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
-                <img src="https://image2url.com/r2/default/images/1769404509038-8e86cf3b-a0ee-4fc2-8724-00aaa52dab89.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
-                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
-                    <p class="text-[8px] font-bold text-white uppercase">MC Gathering</p>
-                </div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
-                <img src="https://image2url.com/r2/default/images/1769404539447-ecea453d-970f-4441-8612-208f8709159c.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
-                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
-                    <p class="text-[8px] font-bold text-white uppercase">Online Mentoring</p>
-                </div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
-                <img src="https://image2url.com/r2/default/images/1769404575301-ac8fffbc-c43c-485d-b79a-66de92d8be34.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
-                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
-                    <p class="text-[8px] font-bold text-white uppercase">Private 1:1</p>
-                </div>
-            </div>
-             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
-                <img src="https://image2url.com/r2/default/images/1769404629454-ff9b228d-3654-4741-b84b-b5ae1712c4e9.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
-                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
-                    <p class="text-[8px] font-bold text-white uppercase">Public Speaking</p>
-                </div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
-                <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
-            </div>
-        </div>
-    </section>
-
     <div class="bg-white py-8 relative z-20">
         <div class="text-center mb-6 scroll-section">
             <span class="text-burgundy font-bold text-[8px] tracking-[0.3em] uppercase">More Products</span>
@@ -348,21 +351,6 @@
             </div>
             <div class="product-card">
                 <div class="card-image-wrapper">
-                    <img src="https://image2url.com/r2/default/images/1769524394623-92f96820-d084-4da6-9d96-74aad9678678.png" alt="Review" class="card-image">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <div class="product-name">MC Basic Intensive</div>
-                        <div class="price-container-grid">
-                            <span class="original-price-grid">Rp 550.000</span>
-                            <span class="discount-price-grid">Rp 250.000</span>
-                        </div>
-                    </div>
-                    <a href="https://lynk.id/rizakamilaa/owdg4ym2nl1y" class="btn-minimal" target="_blank">Coming Soon ￫</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769524412601-a8eedd73-760b-4ce8-ae70-c38d054dd9f9.png" alt="Ebook" class="card-image">
                 </div>
                 <div class="card-content">
@@ -376,7 +364,22 @@
                     <a href="http://lynk.id/rizakamilaa/x8kyqdkxq3e1" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card grayscale opacity-60">
+                <div class="card-image-wrapper">
+                    <img src="https://image2url.com/r2/default/images/1769524394623-92f96820-d084-4da6-9d96-74aad9678678.png" alt="Review" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <div class="product-name">MC Basic Intensive</div>
+                        <div class="price-container-grid">
+                            <span class="original-price-grid">Rp 550.000</span>
+                            <span class="discount-price-grid">Rp 250.000</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-minimal pointer-events-none cursor-not-allowed">Coming Soon ￫</a>
+                </div>
+            </div>
+            <div class="product-card grayscale opacity-60">
                 <div class="card-image-wrapper">
                     <img src="https://image2url.com/r2/default/images/1769524443764-b568cb9f-00b3-4a5a-a7da-bf215ba26212.png" alt="Template" class="card-image">
                 </div>
@@ -388,7 +391,7 @@
                             <span class="discount-price-grid">Rp 800.000</span>
                         </div>
                     </div>
-                    <a href="https://lynk.id/rizakamilaa/mqr9245mv0x0" class="btn-minimal" target="_blank">Coming Soon ￫</a>
+                    <a href="#" class="btn-minimal pointer-events-none cursor-not-allowed">Coming Soon ￫</a>
                 </div>
             </div>
         </div>
@@ -445,6 +448,56 @@
         </section>
     </div>
 
+    <section id="mc" class="py-8 md:py-20 bg-white text-burgundy overflow-hidden relative border-t border-gray-100">
+        <div class="px-5 md:px-20 mb-4 md:mb-10 flex justify-between items-end scroll-section">
+            <div>
+                <h2 class="text-xl md:text-5xl font-serif font-bold">Master of Ceremony</h2>
+                <p class="text-[9px] md:text-xs text-gray-500 mt-1 tracking-widest uppercase">Formal • Wedding • Event</p>
+            </div>
+        </div>
+        <div id="mc-scroller" class="flex overflow-x-auto gap-4 px-4 pb-4 no-scrollbar items-end" style="scroll-behavior: auto;">
+             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">Bimtek</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769416544304-68a69248-6d9b-43af-aa5e-d47966ac5eec.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">MC Mekaarpreneur</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404509038-8e86cf3b-a0ee-4fc2-8724-00aaa52dab89.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">MC Gathering</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404539447-ecea453d-970f-4441-8612-208f8709159c.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">Online Mentoring</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404575301-ac8fffbc-c43c-485d-b79a-66de92d8be34.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">Private 1:1</p>
+                </div>
+            </div>
+             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404629454-ff9b228d-3654-4741-b84b-b5ae1712c4e9.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full pointer-events-none">
+                    <p class="text-[8px] font-bold text-white uppercase">Public Speaking</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm cursor-pointer">
+                <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover transition-transform duration-500 ease-out group-active:scale-110">
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-white py-10 md:py-20 text-center border-t border-gray-200 scroll-section px-4">
         <h3 class="text-[9px] font-bold tracking-[0.3em] text-gray-400 mb-4 uppercase">Socials</h3>
         <h1 class="text-2xl md:text-5xl font-serif font-bold text-burgundy mb-8">Let's Connect.</h1>
@@ -478,7 +531,7 @@
         function updateHero() { trackHero.style.transform = `translateX(-${currentHero * 25}%)`; slides.forEach((s, i) => s.classList.toggle('active', i === currentHero)); }
         function nextSlide() { currentHero = (currentHero + 1) % totalHero; updateHero(); }
         function prevSlide() { currentHero = (currentHero - 1 + totalHero) % totalHero; updateHero(); }
-        setInterval(() => { if(window.scrollY < 200) nextSlide(); }, 5000);
+        setInterval(() => { if(window.scrollY > 200) nextSlide(); }, 5000); // Only slide if user scrolled past header
 
         const mcScroller = document.getElementById('mc-scroller'); let mcScrollSpeed = 1; let isHovering = false;
         function autoScrollMC() { if (!isHovering) { if (mcScroller.scrollLeft >= (mcScroller.scrollWidth - mcScroller.clientWidth - 10)) { mcScroller.scrollLeft = 0; } else { mcScroller.scrollLeft += mcScrollSpeed; } } requestAnimationFrame(autoScrollMC); }
@@ -499,4 +552,3 @@
     </script>
 </body>
 </html>
-
